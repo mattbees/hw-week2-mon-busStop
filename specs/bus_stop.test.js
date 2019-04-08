@@ -21,7 +21,7 @@ describe ('bus stop', () => {
 
   test('bus stop should be able to add people to the queue', () => {
     busStop.addToQueue(person3);
-    expect(busStop.queue) === 1;
+    expect(busStop.queue.length).toBe(1);
   });
 
 });
