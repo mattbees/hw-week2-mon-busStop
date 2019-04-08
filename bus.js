@@ -6,7 +6,7 @@ const Bus = function (routeNo, distance, destination) {
 };
 
 Bus.prototype.drive = function () {
-  this.distance+10;
+  this.distance += 10;
 };
 
 Bus.prototype.countPassengers = function () {
@@ -29,7 +29,7 @@ Bus.prototype.pickUpAll = function (busStop) {
   for (let passenger of busStop.queue) {
     this.passengers.push(passenger);
   }
-  busStop = [];
+  busStop.queue = [];
 };
 
 module.exports = Bus;

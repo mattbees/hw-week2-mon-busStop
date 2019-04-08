@@ -31,7 +31,7 @@ describe ('bus', () => {
 
   test('bus should be able to cover distance', () => {
     bus.drive();
-    expect(bus.distance)/*>arg*/;
+    expect(bus.distance).toBe(10);
   });
 
   test('bus should have passengers', () => {
@@ -39,12 +39,14 @@ describe ('bus', () => {
   });
 
   test('bus should be able to count passengers', () => {
-    expect(bus.countPassengers() === 0);
+    expect(bus.countPassengers()).toBe(0);
+    bus.addPassenger(person1);
+    expect(bus.countPassengers()).toBe(1);
   });
 
   test('bus should be able to add a passenger', () => {
     bus.addPassenger(person1);
-    expect(bus.passengers.length) === 1;
+    expect(bus.passengers.length).toBe(1);
   });
 
   test('bus should be able to drop off a passenger', () => {
@@ -62,11 +64,9 @@ describe ('bus', () => {
   });
 
   test('bus should be able to pick up all passengers from stop', () => {
-    busStop.addToQueue(person1);
-    busStop.addToQueue(person2);
     bus.pickUpAll(busStop);
-    expect(busStop.passengers) === [person1, person2];
-    expect(busStop.queue) === 0;
+    expect(bus.passengers.length).toBe(2);
+    expect(busStop.queue.length).toBe(0);
   });
 
 });

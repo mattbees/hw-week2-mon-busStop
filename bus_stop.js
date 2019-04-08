@@ -7,4 +7,6 @@ BusStop.prototype.addToQueue = function (person) {
   this.queue.push(person);
 };
 
+
+
 module.exports = BusStop;
