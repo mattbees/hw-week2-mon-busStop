@@ -46,12 +46,13 @@ describe ('bus', () => {
   test('bus should be able to drop off a passenger', () => {
     bus.addPassenger(person1);
     bus.addPassenger(person2);
-    console.log(bus.passengers.length);
     bus.dropPassenger();
     expect(bus.passengers.length).toBe(1);
   });
 
-  xtest('bus should be able to drop all passengers', () => {
+  test('bus should be able to drop all passengers', () => {
+    bus.addPassenger(person1);
+    bus.addPassenger(person2);
     bus.empty();
     expect(bus.passengers.length).toBe(0);
   });

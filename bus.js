@@ -23,4 +23,8 @@ Bus.prototype.dropPassenger = function () {
   this.passengers.pop();
 };
 
+Bus.prototype.empty = function () {
+  this.passengers = [];
+};
+
 module.exports = Bus;
