@@ -1,16 +1,20 @@
 const Bus = require('../bus');
 const Person = require('../person');
+const BusStop = require('../bus_stop');
 
 describe ('bus', () => {
 
   let bus;
   let person1;
   let person2;
+  let busStop;
 
   beforeEach(() => {
     bus = new Bus(22, 0, 'Ocean Terminal')
     person1 = new Person('Dan', 25);
     person2 = new Person('Tanya', 47);
+    busStop = new BusStop;
+    busStop.queue = [person1, person2];
   });
 
   test('bus should have a route number', () => {
@@ -55,6 +59,14 @@ describe ('bus', () => {
     bus.addPassenger(person2);
     bus.empty();
     expect(bus.passengers.length).toBe(0);
+  });
+
+  test('bus should be able to pick up all passengers from stop', () => {
+    busStop.addToQueue(person1);
+    busStop.addToQueue(person2);
+    bus.pickUpAll(busStop);
+    expect(busStop.passengers) === [person1, person2];
+    expect(busStop.queue) === 0;
   });
 
 });

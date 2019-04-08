@@ -1,5 +1,4 @@
 const BusStop = require('../bus_stop');
-const Bus = require('../bus');
 const Person = require('../person');
 
 describe ('bus stop', () => {

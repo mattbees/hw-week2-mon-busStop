@@ -1,5 +1,3 @@
-const Person = require('./person');
-
 const Bus = function (routeNo, distance, destination) {
   this.routeNo = routeNo;
   this.distance = distance;
@@ -25,6 +23,13 @@ Bus.prototype.dropPassenger = function () {
 
 Bus.prototype.empty = function () {
   this.passengers = [];
+};
+
+Bus.prototype.pickUpAll = function (busStop) {
+  for (let passenger of busStop.queue) {
+    this.passengers.push(passenger);
+  }
+  busStop = [];
 };
 
 module.exports = Bus;
