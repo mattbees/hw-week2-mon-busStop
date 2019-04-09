@@ -35,7 +35,7 @@ describe ('bus', () => {
   });
 
   test('bus should have passengers', () => {
-    expect(bus.passengers === []);
+    expect(bus.passengers).toEqual([]);
   });
 
   test('bus should be able to count passengers', () => {
